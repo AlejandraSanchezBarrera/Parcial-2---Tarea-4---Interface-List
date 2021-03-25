@@ -193,8 +193,6 @@ public class LinkedList<G> implements List<G> {
             currentNode.previous.next = currentNode.next;
             currentNode.next.previous = currentNode.previous;
         }
-
-
     }
 
     @Override

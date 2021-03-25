@@ -1,5 +1,6 @@
 package uaslp.ingenieria.labs;
 
+import uaslp.ingenieria.labs.list.ArrayList;
 import uaslp.ingenieria.labs.list.Iterator;
 import uaslp.ingenieria.labs.list.LinkedList;
 import uaslp.ingenieria.labs.list.List;
@@ -11,12 +12,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int cuenta =  LinkedList.getListsCount();
+        //int cuenta =  LinkedList.getListsCount();
         // Wrapper classes -> Integer, Float, Character, Boolean
         //Las wrapper classes son "Inmutables"
 
-        List<Integer> lista1 = new LinkedList<>();
-        List<String> lista2 = new LinkedList<>();
+        List<Integer> lista1 = new ArrayList<>();
+        List<String> lista2 = new ArrayList<>();
 
         lista1.add(1);
         lista1.add(4);
@@ -28,7 +29,7 @@ public class Main {
         lista2.add("Oriented ");
         lista2.add("Programming ");
 
-        lista1.delete(3);
+        //lista1.delete(3);
 
         System.out.println("---------------------");
 
@@ -36,7 +37,7 @@ public class Main {
 
         Iterator<Integer> it = lista1.getIterator();
 
-        while( it.hasNext()){
+        while(it.hasNext()){
             int element = it.next();
 
             System.out.println("Dato: " + element);
