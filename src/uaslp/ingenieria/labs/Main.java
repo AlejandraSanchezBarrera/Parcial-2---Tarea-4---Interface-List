@@ -29,7 +29,7 @@ public class Main {
         lista2.add("Oriented ");
         lista2.add("Programming ");
 
-        //lista1.delete(3);
+        lista1.delete(3);
 
         System.out.println("---------------------");
 

@@ -22,6 +22,24 @@ public class ArrayList <H> implements List<H>{
     @Override
     public void delete(int index) {
 
+        int position=0;
+        int currentIndex=0;
+
+        if(index<0 || index>=size || size==0){
+            return;
+        }
+
+        if(index>0 && index<size){
+            while(position<index){
+                position=position+1;
+                array[currentIndex]=array[currentIndex+1];
+                currentIndex++;
+            }
+            if (index<0 || index>=size){
+                return;
+            }
+        }
+        size--;
     }
 
     @Override
