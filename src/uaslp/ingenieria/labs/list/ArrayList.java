@@ -6,17 +6,31 @@ public class ArrayList <H> implements List<H>{
     private int size;
 
     public ArrayList() {
-        this.array = new Object[5];
+        this.array = new Object[2];
     }
 
     @Override
     public void add(H data) {
-        this.array[size++] = data;
+        if(size==array.length){
+            Object aux[]=new Object[array.length+2];
+
+            for(int i=0;i<array.length;i++){
+                aux[i]=array[i];
+            }
+
+            this.array=new Object[aux.length];
+
+            for(int i=0;i<array.length;i++){
+                array[i]=aux[i];
+            }
+        }
+        this.array[size]=data;
+        size++;
     }
 
     @Override
     public H get(int index) {
-        return (H)this.array[index];
+        return (H)array[index];
     }
 
     @Override
@@ -66,22 +80,23 @@ public class ArrayList <H> implements List<H>{
         private int position;
 
         public ForwardIterator(){
-            position=0;
+            this.position=0;
+        }
+
+        public ForwardIterator(int position){
+            this.position=position;
         }
 
         @Override
         public boolean hasNext() {
-            boolean result = false;
-            if (position < size) {
-                result=true;
-            }
-            return result;
+            return position < size;
         }
 
         @Override
         public H next() {
+            H data= (H) array[position];
             position++;
-            return (H) array[position-1];
+            return data;
         }
     }
 
@@ -89,22 +104,23 @@ public class ArrayList <H> implements List<H>{
         private int position;
 
         public ReverseIterator(){
-            position=size;
+            this.position=size-1;
+        }
+
+        public ReverseIterator(int position){
+            this.position = position;
         }
 
         @Override
         public boolean hasNext() {
-            boolean result = false;
-            if (position < size) {
-                result=true;
-            }
-            return result;
+            return position>=0;
         }
 
         @Override
         public H next() {
+            H data= (H) array[position];
             position--;
-            return (H) array[position-1];
+            return data;
         }
     }
 }
