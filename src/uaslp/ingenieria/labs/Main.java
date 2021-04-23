@@ -17,7 +17,7 @@ public class Main {
         //Las wrapper classes son "Inmutables"
 
         List<Integer> lista1 = new ArrayList<>();
-        List<String> lista2 = new ArrayList<>();
+        List<String> lista2 = new LinkedList<>();
 
         lista1.add(1);
         lista1.add(4);

@@ -2,7 +2,7 @@ package uaslp.ingenieria.labs.list;
 
 public class ArrayList <H> implements List<H>{
 
-    private Object array[];
+    private Object[] array;
     private int size;
 
     public ArrayList() {
@@ -12,7 +12,7 @@ public class ArrayList <H> implements List<H>{
     @Override
     public void add(H data) {
         if(size==array.length){
-            Object aux[]=new Object[array.length+2];
+            Object[] aux=new Object[array.length+2];
 
             for(int i=0;i<array.length;i++){
                 aux[i]=array[i];
@@ -35,23 +35,32 @@ public class ArrayList <H> implements List<H>{
 
     @Override
     public void delete(int index) {
-
-        int position=0;
-        int currentIndex=0;
-
-        if(index<0 || index>=size || size==0){
+//
+//        int position=0;
+//        int currentIndex=0;
+//
+//        if(index<0 || index>=size || size==0){
+//            return;
+//        }
+//
+//        if(index>0 && index<size){
+//            while(position<index){
+//                position=position+1;
+//                array[currentIndex]=array[currentIndex+1];
+//                currentIndex++;
+//            }
+//            if (index<0 || index>=size){
+//                return;
+//            }
+//        }
+//        size--;
+        int currentIndex;
+        if(index<0 || index>=size){
             return;
         }
 
-        if(index>0 && index<size){
-            while(position<index){
-                position=position+1;
-                array[currentIndex]=array[currentIndex+1];
-                currentIndex++;
-            }
-            if (index<0 || index>=size){
-                return;
-            }
+        for(int i=index+1;i<size;i++){
+            this.array[i-1]=this.array[i];
         }
         size--;
     }
