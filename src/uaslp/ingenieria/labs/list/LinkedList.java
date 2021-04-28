@@ -200,7 +200,7 @@ public class LinkedList<G> implements List<G> {
         return new ForwardIterator();
     }
 
-    @Override
+    /*@Override
     public void insert(G data, Position position, Iterator<G> it) {
         // ¿qué ofrece java para restringir los valores de position a solamente BEFORE y AFTER?
 
@@ -229,7 +229,7 @@ public class LinkedList<G> implements List<G> {
             System.out.println("No conozco el valor de position");
         }
         size++;
-    }
+    }*/
 
     @Override
     public int getSize() {

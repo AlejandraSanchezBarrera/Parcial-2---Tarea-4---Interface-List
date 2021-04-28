@@ -35,31 +35,11 @@ public class ArrayList <H> implements List<H>{
 
     @Override
     public void delete(int index) {
-//
-//        int position=0;
-//        int currentIndex=0;
-//
-//        if(index<0 || index>=size || size==0){
-//            return;
-//        }
-//
-//        if(index>0 && index<size){
-//            while(position<index){
-//                position=position+1;
-//                array[currentIndex]=array[currentIndex+1];
-//                currentIndex++;
-//            }
-//            if (index<0 || index>=size){
-//                return;
-//            }
-//        }
-//        size--;
-        int currentIndex;
         if(index<0 || index>=size){
             return;
         }
 
-        for(int i=index+1;i<size;i++){
+        for(int i=index+1;i<array.length;i++){
             this.array[i-1]=this.array[i];
         }
         size--;
@@ -75,10 +55,10 @@ public class ArrayList <H> implements List<H>{
         return new ForwardIterator();
     }
 
-    @Override
+    /*@Override
     public void insert(H data, Position position, Iterator<H> it) {
 
-    }
+    }*/
 
     @Override
     public Iterator<H> getReverseIterator() {
@@ -90,10 +70,6 @@ public class ArrayList <H> implements List<H>{
 
         public ForwardIterator(){
             this.position=0;
-        }
-
-        public ForwardIterator(int position){
-            this.position=position;
         }
 
         @Override
@@ -116,9 +92,7 @@ public class ArrayList <H> implements List<H>{
             this.position=size-1;
         }
 
-        public ReverseIterator(int position){
-            this.position = position;
-        }
+
 
         @Override
         public boolean hasNext() {

@@ -13,7 +13,7 @@ public interface List <T> {
 
     Iterator<T> getIterator();
 
-    void insert(T data, Position position, Iterator<T> it);
+    //void insert(T data, Position position, Iterator<T> it);
 
     Iterator<T> getReverseIterator();
 }
