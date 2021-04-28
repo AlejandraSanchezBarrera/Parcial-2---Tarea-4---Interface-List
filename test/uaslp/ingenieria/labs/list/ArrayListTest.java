@@ -5,18 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArrayListTest {
-    /*@Test
-    public void givenANewListIsCreated_ThenListIsEmpty(){
-        //Given:
-
-        //When:
-        ArrayList<Integer> lista =new ArrayList<>();
-        LinkedList<String> listaS=new LinkedList<>();
-
-        //Then:
-        assertEquals(0,lista.getSize());
-        assertEquals(0,listaS.getSize());
-    }*/
 
     @Test
     public void whenArrayIsCreated_thenSizeZero(){
