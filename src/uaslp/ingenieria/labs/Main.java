@@ -31,6 +31,9 @@ public class Main {
 
         lista1.delete(3);
 
+        lista2.delete(3);
+
+
         System.out.println("---------------------");
 
         System.out.println("El tamaño es:" + lista1.getSize());

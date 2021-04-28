@@ -58,14 +58,11 @@ public class LinkedList<G> implements List<G> {
         listsCount ++;
     }
 
-    private static int listsCount = 0;
+    private static int listsCount = getListsCount();
 
     public static int getListsCount(){
         return listsCount;
     }
-
-
-
 
     public class ForwardIterator implements Iterator<G> {
         private Node<G> currentNode;
@@ -74,9 +71,9 @@ public class LinkedList<G> implements List<G> {
             this.currentNode = head;
         }
 
-        public ForwardIterator(ForwardIterator iterator){
+       /* public ForwardIterator(ForwardIterator iterator){
             currentNode = iterator.currentNode;
-        }
+        }*/
 
         public boolean hasNext(){
             return currentNode != null;
@@ -91,9 +88,9 @@ public class LinkedList<G> implements List<G> {
             return data;
         }
 
-        Node<G> getCurrentNode() {  // modificador de acceso se llama -> package-private
+        /*Node<G> getCurrentNode() {  // modificador de acceso se llama -> package-private
             return currentNode;
-        }
+        }*/
     }
 
     public class ReverseIterator implements Iterator<G> {
@@ -154,7 +151,6 @@ public class LinkedList<G> implements List<G> {
             currentNode = currentNode.next;
             currentIndex++;
         }
-
         return currentNode.data;
     }
 

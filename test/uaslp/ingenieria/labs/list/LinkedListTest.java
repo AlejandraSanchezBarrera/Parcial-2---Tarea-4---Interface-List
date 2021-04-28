@@ -2,200 +2,201 @@ package uaslp.ingenieria.labs.list;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ArrayListTest {
-    /*@Test
-    public void givenANewListIsCreated_ThenListIsEmpty(){
-        //Given:
+public class LinkedListTest {
 
-        //When:
-        ArrayList<Integer> lista =new ArrayList<>();
-        LinkedList<String> listaS=new LinkedList<>();
-
-        //Then:
-        assertEquals(0,lista.getSize());
-        assertEquals(0,listaS.getSize());
-    }*/
+    //biblioteca -> código ya hecho que podamos utilizar
+    //framework -> JUnit es como otra biblioteca que se añade en el proyecto, pero como hace cosas por si misma,
+    // algo corre, y así deja de ser una biblioteca
+    //jar -> empaquetado de código java
+    //Aserciones -> permiten validar que la ejecución fue correcta
+    //expresivo -> que al leer el lenguage se entienda
 
     @Test
-    public void whenArrayIsCreated_thenSizeZero(){
-        //inicialiación
-        ArrayList<Integer> list =new ArrayList<>();
+    public void whenLinkedListIsCreated_thenSizeIsZero() {
+        //inicialización
+        LinkedList<String> list = new LinkedList<>();
 
-        //ejecuación
+        //ejecución
         int size=list.getSize();
 
-        //validación
+        //Validación
         assertEquals(0,size,"Size no es cero");
     }
 
     @Test
-    public void givenANewArray_whenAddElement_theSizeIsOne(){
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-
-        assertEquals(1, list.getSize());
-        assertEquals(500,list.get(0));
-    }
-
-    @Test
-    public void givenAnExistentArrayWithElement_whenAddElement_thenSizeIsTwo(){
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(100);
-
-        assertEquals(2, list.getSize(),"Debería tener 2 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(100,list.get(1));
-    }
-    @Test
-    public void givenAnExistentArrayWithNoCapacity_whenAddElemente_thenSizeAndCapactyIncremets(){
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
-
-        list.add(100);
-
-        assertEquals(5,list.getSize(),"Debería tener 5 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(600,list.get(1));
-        assertEquals(700,list.get(2));
-        assertEquals(800,list.get(3));
-        assertEquals(100,list.get(4));
-    }
-
-    @Test
-    public void givenAListWith5Element_whenInterator_thenElementsAccesible(){
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
-        list.add(100);
+    public void givenANewLinkedList_when_AddElement_thenSizeIsOne(){
+        //inicialización
+        LinkedList<String> list = new LinkedList<>();
 
         //ejecución
-        Iterator<Integer> it= list.getIterator();
+        list.add("Hola");
 
-        assertTrue(it.hasNext());
-        assertEquals(500,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(600,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(700,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(800,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(100,it.next());
-        assertFalse(it.hasNext());
+        //Validación
+        assertEquals(1,list.getSize());
+        assertEquals("Hola",list.get(0),"Se esperaba 'Hola'");
     }
 
     @Test
-    public void givenAListWith5Element_whenReverseInterator_thenElementsAccesible(){
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
-        list.add(100);
+    public void givenAnExistenLinkedListWith1Element_whenAddElement_thenSizeIsOne(){
+        LinkedList<String> list = new LinkedList<>();
 
         //ejecución
-        Iterator<Integer> it= list.getReverseIterator();
+        list.add("Hola");
+        list.add("Test");
 
-        assertTrue(it.hasNext());
-        assertEquals(100,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(800,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(700,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(600,it.next());
-        assertTrue(it.hasNext());
-        assertEquals(500,it.next());
-        assertFalse(it.hasNext());
+        //Validación
+        assertEquals(2,list.getSize());
+        assertEquals("Hola",list.get(0),"Se esperaba 'Hola'");
+        assertEquals("Test",list.get(1),"Se esperaba 'Test'");
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementHead_thenSizeDecrements(){
-        //TDD-> Test Driven Development
+    public void givenAnExistenLinkedListWith2Elements_whenAddElement_thenSizeIncrements(){
+        LinkedList<String> list = new LinkedList<>();
 
-        ArrayList<Integer> list=new ArrayList<>();
+        //ejecución
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
 
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
+        //Validación
+        assertEquals(3,list.getSize());
+        assertEquals("Hola",list.get(0),"Se esperaba 'Hola'");
+        assertEquals("Test",list.get(1),"Se esperaba 'Test'");
+        assertEquals("Para",list.get(2),"Se esperaba 'Para'");
+    }
+
+    @Test
+    public void givenAnExistenLinkedListWith3Elements_whenAddElement_thenSizeIncrements(){
+        LinkedList<String> list = new LinkedList<>();
+
+        //ejecución
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
+
+        //Validación
+        assertEquals(4,list.getSize());
+        assertEquals("Hola",list.get(0),"Se esperaba 'Hola'");
+        assertEquals("Test",list.get(1),"Se esperaba 'Test'");
+        assertEquals("Para",list.get(2),"Se esperaba 'Para'");
+        assertEquals("LinkedList",list.get(3),"Se esperaba 'LinkedList");
+    }
+
+    @Test
+    public void givenALinkedListWith4Elements_whenIterator_thenElementIsAccesible(){
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
+
+        Iterator<String> it= list.getIterator();;
+
+        assertTrue(it.hasNext());
+        assertEquals("Hola",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("Test",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("Para",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("LinkedList",it.next());
+    }
+
+    @Test
+    public void givenALinkedListWith4Elements_whenReverseIterator_thenElementIsAccesible(){
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
+
+        Iterator<String> it= list.getReverseIterator();
+
+        assertTrue(it.hasNext());
+        assertEquals("LinkedList",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("Para",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("Test",it.next());
+        assertTrue(it.hasNext());
+        assertEquals("Hola",it.next());
+    }
+
+    @Test
+    public void givenAnExistenLinkedListWith4Elements_thenDeleteHeadElement_theSizeeDecremens(){
+        LinkedList<String> list=new LinkedList<>();
+
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
 
         list.delete(0);
 
-        assertEquals(3,list.getSize(),"Debería tener 3 elementos");
-        assertEquals(600,list.get(0));
-        assertEquals(700,list.get(1));
-        assertEquals(800,list.get(2));
+        assertEquals(3,list.getSize(),"Debería ser size = 3");
+        assertEquals("Test",list.get(0));
+        assertEquals("Para",list.get(1));
+        assertEquals("LinkedList",list.get(2));
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementInTheMiddle_thenSizeDecrements(){
-        //TDD-> Test Driven Development
+    public void givenAnExistenLinkedListWith4Eelementes_DeleteLastElement_thenSizeDecrement(){
+        LinkedList<String> list=new LinkedList<>();
 
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
-
-        list.delete(1);
-
-        assertEquals(3,list.getSize(),"Debería tener 3 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(700,list.get(1));
-        assertEquals(800,list.get(2));
-    }
-
-    @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteTailElement_thenSizeDecrements(){
-        //TDD-> Test Driven Development
-
-        ArrayList<Integer> list=new ArrayList<>();
-
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
 
         list.delete(3);
 
-        assertEquals(3,list.getSize(),"Debería tener 3 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(600,list.get(1));
-        assertEquals(700,list.get(2));
+        assertEquals(3,list.getSize(),"Debería ser size = 3");
+        assertEquals("Hola",list.get(0));
+        assertEquals("Test",list.get(1));
+        assertEquals("Para",list.get(2));
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementWhenIndex5_thenIndexOutOfBoundExceptionIsThrown(){
-        //TDD-> Test Driven Development
+    public void givenAnExistenLinkedListWith4Eelementes_DeleteMiddleElement_thenSizeDecrement(){
+        LinkedList<String> list=new LinkedList<>();
 
-        ArrayList<Integer> list=new ArrayList<>();
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
 
-        list.add(500);
-        list.add(600);
-        list.add(700);
-        list.add(800);
+        list.delete(2);
 
-        list.delete(5);
-
-        assertEquals(4,list.getSize(),"Debería tener 3 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(600,list.get(1));
-        assertEquals(700,list.get(2));
-        assertEquals(800,list.get(3));
+        assertEquals(3,list.getSize(),"Debería ser size = 3");
+        assertEquals("Hola",list.get(0));
+        assertEquals("Test",list.get(1));
+        assertEquals("LinkedList",list.get(2));
     }
+
+    @Test
+    public void givenAnExistenLinkedListWith4Elementes_WhenDeleteAll_theSizeIsZero(){
+        LinkedList<String> list=new LinkedList<>();
+
+        list.add("Hola");
+        list.add("Test");
+        list.add("Para");
+        list.add("LinkedList");
+
+        list.delete(3);
+        list.delete(2);
+        list.delete(1);
+        list.delete(0);
+
+        assertEquals(0,list.getSize(),"Size debería ser igual a 0");
+        assertEquals((Character) null,null);
+    }
+
+
 }
