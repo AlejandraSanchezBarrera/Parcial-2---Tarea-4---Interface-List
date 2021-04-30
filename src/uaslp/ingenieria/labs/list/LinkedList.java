@@ -29,25 +29,6 @@ public class LinkedList<G> implements List<G> {
         // IMPORTANTE 2:
         // Ya que Node es privado podemos eliminar los getters y los setters y utilizar sus atributos directamente
         // ya que no puede estar expuesto a malos usos desde fuera del LinkedList por tener visibilidad privada
-        /*
-        public T getData() {
-            return data;
-        }
-        public void setData(T data) {
-            this.data = data;
-        }
-        public Node<T> getPrevious() {
-            return previous;
-        }
-        public void setPrevious(Node<T> previous) {
-            this.previous = previous;
-        }
-        public Node<T> getNext() {
-            return next;
-        }
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }*/
     }
 
     private Node<G> head;
@@ -155,12 +136,12 @@ public class LinkedList<G> implements List<G> {
     }
 
     @Override
-    public void delete(int index) {
+    public void delete(int index) throws MyIndexOutOfBoundException {
         Node<G> currentNode = head;
         int currentIndex = 0;
 
         if (index < 0 || index >= size) {
-            return;
+            throw new MyIndexOutOfBoundException();
         }
 
         size--;

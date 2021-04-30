@@ -7,7 +7,7 @@ public interface List <T> {
 
     T get(int index);
 
-    void delete(int index);
+    void delete(int index) throws MyIndexOutOfBoundException;
 
     int getSize();
 

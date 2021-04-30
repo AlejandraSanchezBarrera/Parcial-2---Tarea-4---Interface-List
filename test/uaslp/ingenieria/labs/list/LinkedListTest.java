@@ -1,5 +1,6 @@
 package uaslp.ingenieria.labs.list;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +14,7 @@ public class LinkedListTest {
     //jar -> empaquetado de código java
     //Aserciones -> permiten validar que la ejecución fue correcta
     //expresivo -> que al leer el lenguage se entienda
-
+    //TDD -> test driven development -> desarrollo basado en pruebas
     @Test
     public void whenLinkedListIsCreated_thenSizeIsZero() {
         //inicialización
@@ -130,7 +131,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenAnExistenLinkedListWith4Elements_thenDeleteHeadElement_theSizeeDecremens(){
+    public void givenAnExistenLinkedListWith4Elements_thenDeleteHeadElement_theSizeeDecremens() throws MyIndexOutOfBoundException {
         LinkedList<String> list=new LinkedList<>();
 
         list.add("Hola");
@@ -147,7 +148,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenAnExistenLinkedListWith4Eelementes_DeleteLastElement_thenSizeDecrement(){
+    public void givenAnExistenLinkedListWith4Eelementes_DeleteLastElement_thenSizeDecrement() throws MyIndexOutOfBoundException {
         LinkedList<String> list=new LinkedList<>();
 
         list.add("Hola");
@@ -164,7 +165,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenAnExistenLinkedListWith4Eelementes_DeleteMiddleElement_thenSizeDecrement(){
+    public void givenAnExistenLinkedListWith4Eelementes_DeleteMiddleElement_thenSizeDecrement() throws MyIndexOutOfBoundException {
         LinkedList<String> list=new LinkedList<>();
 
         list.add("Hola");
@@ -181,7 +182,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenAnExistenLinkedListWith4Elementes_WhenDeleteAll_theSizeIsZero(){
+    public void givenAnExistenLinkedListWith4Elementes_WhenDeleteAll_theSizeIsZero() throws MyIndexOutOfBoundException {
         LinkedList<String> list=new LinkedList<>();
 
         list.add("Hola");
@@ -189,13 +190,9 @@ public class LinkedListTest {
         list.add("Para");
         list.add("LinkedList");
 
-        list.delete(3);
-        list.delete(2);
-        list.delete(1);
-        list.delete(0);
-
-        assertEquals(0,list.getSize(),"Size debería ser igual a 0");
-        assertEquals((Character) null,null);
+        Assertions.assertThrows(MyIndexOutOfBoundException.class, ()->{
+            list.delete(5);
+        });
     }
 
 

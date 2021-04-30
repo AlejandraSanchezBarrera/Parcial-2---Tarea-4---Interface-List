@@ -1,6 +1,9 @@
 package uaslp.ingenieria.labs.list;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+import org.junit.platform.engine.support.hierarchical.ThrowableCollector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,7 +114,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementHead_thenSizeDecrements(){
+    public void givenAnExistenArrayWith4Elements_thenDeleteElementHead_thenSizeDecrements() throws MyIndexOutOfBoundException {
         //TDD-> Test Driven Development
 
         ArrayList<Integer> list=new ArrayList<>();
@@ -130,7 +133,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementInTheMiddle_thenSizeDecrements(){
+    public void givenAnExistenArrayWith4Elements_thenDeleteElementInTheMiddle_thenSizeDecrements() throws MyIndexOutOfBoundException {
         //TDD-> Test Driven Development
 
         ArrayList<Integer> list=new ArrayList<>();
@@ -149,7 +152,7 @@ public class ArrayListTest {
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteTailElement_thenSizeDecrements(){
+    public void givenAnExistenArrayWith4Elements_thenDeleteTailElement_thenSizeDecrements() throws MyIndexOutOfBoundException {
         //TDD-> Test Driven Development
 
         ArrayList<Integer> list=new ArrayList<>();
@@ -168,9 +171,8 @@ public class ArrayListTest {
     }
 
     @Test
-    public void givenAnExistenArrayWith4Elements_thenDeleteElementWhenIndex5_thenIndexOutOfBoundExceptionIsThrown(){
+    public void givenAnExistenArrayWith4Elements_whenDeleteElementWhenIndex5_thenIndexOutOfBoundExceptionIsThrown(){
         //TDD-> Test Driven Development
-
         ArrayList<Integer> list=new ArrayList<>();
 
         list.add(500);
@@ -178,12 +180,9 @@ public class ArrayListTest {
         list.add(700);
         list.add(800);
 
-        list.delete(5);
-
-        assertEquals(4,list.getSize(),"Debería tener 3 elementos");
-        assertEquals(500,list.get(0));
-        assertEquals(600,list.get(1));
-        assertEquals(700,list.get(2));
-        assertEquals(800,list.get(3));
+        Assertions.assertThrows(MyIndexOutOfBoundException.class, ()->{
+            list.delete(5);
+        }); //lambdas
+        //interface personales -> solo tiene un método -> interfaces funcionales
     }
 }

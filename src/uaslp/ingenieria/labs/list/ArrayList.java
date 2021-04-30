@@ -34,9 +34,9 @@ public class ArrayList <H> implements List<H>{
     }
 
     @Override
-    public void delete(int index) {
+    public void delete(int index) throws MyIndexOutOfBoundException {
         if(index<0 || index>=size){
-            return;
+            throw new MyIndexOutOfBoundException();
         }
 
         for(int i=index+1;i<array.length;i++){
@@ -91,8 +91,6 @@ public class ArrayList <H> implements List<H>{
         public ReverseIterator(){
             this.position=size-1;
         }
-
-
 
         @Override
         public boolean hasNext() {

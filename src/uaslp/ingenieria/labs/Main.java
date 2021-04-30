@@ -1,16 +1,13 @@
 package uaslp.ingenieria.labs;
 
-import uaslp.ingenieria.labs.list.ArrayList;
-import uaslp.ingenieria.labs.list.Iterator;
-import uaslp.ingenieria.labs.list.LinkedList;
-import uaslp.ingenieria.labs.list.List;
+import uaslp.ingenieria.labs.list.*;
 
 public class Main {
 
     // Inner classes
     // Outer classes
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyIndexOutOfBoundException {
 
         //int cuenta =  LinkedList.getListsCount();
         // Wrapper classes -> Integer, Float, Character, Boolean
