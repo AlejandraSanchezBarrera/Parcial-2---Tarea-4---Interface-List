@@ -182,7 +182,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void givenAnExistenLinkedListWith4Elementes_WhenDeleteAll_theSizeIsZero() throws MyIndexOutOfBoundException {
+    public void givenAnExistenLinkedListWith4Elementes_WhenDeleteAll_theSizeIsZero() {
         LinkedList<String> list=new LinkedList<>();
 
         list.add("Hola");
@@ -194,6 +194,4 @@ public class LinkedListTest {
             list.delete(5);
         });
     }
-
-
 }
